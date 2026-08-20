@@ -1,14 +1,14 @@
 <?php
 
 /* =====================================================
-   DATABASE CONFIGURATION - UPDATE AFTER RENDER SETUP
+   DATABASE CONFIGURATION - FIXED FOR RENDER
 ===================================================== */
 
-// ⚠️ KEEP THESE AS IS - UPDATE AFTER GETTING RENDER CREDENTIALS
-$host = getenv('MYSQL_HOST') ?: "localhost";
-$username = getenv('MYSQL_USER') ?: "root";
-$password = getenv('MYSQL_PASSWORD') ?: "";
-$database = getenv('MYSQL_DATABASE') ?: "hostel_db";
+// Render uses these environment variable names
+$host = getenv('MYSQLHOST') ?: getenv('MYSQL_HOST') ?: "localhost";
+$username = getenv('MYSQLUSER') ?: getenv('MYSQL_USER') ?: "root";
+$password = getenv('MYSQLPASSWORD') ?: getenv('MYSQL_PASSWORD') ?: "";
+$database = getenv('MYSQLDATABASE') ?: getenv('MYSQL_DATABASE') ?: "hostel_db";
 
 $conn = new mysqli($host, $username, $password, $database);
 
