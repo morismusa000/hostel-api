@@ -3,7 +3,7 @@
 header("Content-Type: application/json");
 
 /* =====================================================
-   DATABASE CONFIGURATION - TiDB Cloud
+   DATABASE CONFIGURATION - TiDB Cloud (SSL REQUIRED)
 ===================================================== */
 
 // TiDB Cloud Connection
@@ -13,11 +13,10 @@ $username = "sYGMkkeWpuc4BWP.root";
 $password = "f9br2pCNY7rGbJnf";
 $database = "hostel_complaint_db";
 
-// Create connection with port
-$conn = new mysqli($host, $username, $password, $database, $port);
-
-// Enable SSL/TLS for secure connection to TiDB Cloud
+// Create connection with SSL enabled (TiDB Cloud REQUIRES TLS)
+$conn = mysqli_init();
 $conn->ssl_set(null, null, null, null, null);
+$conn->real_connect($host, $username, $password, $database, $port, null, MYSQLI_CLIENT_SSL);
 
 // Check connection
 if ($conn->connect_error) {
