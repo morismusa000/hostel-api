@@ -16,6 +16,9 @@ $database = "hostel_complaint_db";
 // Create connection with port
 $conn = new mysqli($host, $username, $password, $database, $port);
 
+// Enable SSL/TLS for secure connection to TiDB Cloud
+$conn->ssl_set(null, null, null, null, null);
+
 // Check connection
 if ($conn->connect_error) {
     echo json_encode([
