@@ -11,7 +11,7 @@ $host = "gateway01.eu-central-1.prod.aws.tidbcloud.com";
 $port = 4000;
 $username = "sYGMkkeWpuc4BWP.root";
 $password = "f9br2pCNY7rGbJnf";
-$database = "hostel_complaint_db";
+$database = "hostel_db";
 
 // Create connection with SSL enabled (TiDB Cloud REQUIRES TLS)
 $conn = mysqli_init();
